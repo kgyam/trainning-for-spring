@@ -29,4 +29,9 @@ public class User {
                 ", age=" + age +
                 '}';
     }
+
+
+    public static User createUser() {
+        return new User();
+    }
 }
