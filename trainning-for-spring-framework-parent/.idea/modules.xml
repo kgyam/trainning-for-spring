@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-bean/spring-bean.iml" filepath="$PROJECT_DIR$/spring-bean/spring-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-dependency-lookup-overview/spring-dependency-lookup-overview.iml" filepath="$PROJECT_DIR$/spring-dependency-lookup-overview/spring-dependency-lookup-overview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trainning-for-spring-framework.iml" filepath="$PROJECT_DIR$/trainning-for-spring-framework.iml" />
+    </modules>
+  </component>
+</project>

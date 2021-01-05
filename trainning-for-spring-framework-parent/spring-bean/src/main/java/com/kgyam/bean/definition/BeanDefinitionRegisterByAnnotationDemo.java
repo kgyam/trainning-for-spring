@@ -52,6 +52,8 @@ public class BeanDefinitionRegisterByAnnotationDemo {
         /**
          * 设置容器扫描路径，不加上这个
          * @Component无法被注册到容器中
+         *
+         * 默认情况下，容器扫描的base package路径是启动类的下一级
          */
         beanFactory.scan("com.kgyam.bean.definition");
         beanFactory.register(BeanDefinitionRegisterByAnnotationDemo.class);

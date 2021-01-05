@@ -19,8 +19,11 @@ public class BeanDefinitionRegistryByApiDemo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(BeanDefinitionRegistryByApiDemo.class);
+        //启动应用上下文
         applicationContext.refresh();
+        //带有bean name方式api注册方式
         beanDefinitionRegistryByBeanName(applicationContext, "general-yam", User.class);
+        //不带bean name方式api注册方式
         beanDefinitionRegistryNonName(applicationContext, User.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         Stream.of(beanDefinitionNames).forEach(System.out::println);
