@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/dependency-lookup/dependency-lookup.iml" filepath="$PROJECT_DIR$/dependency-lookup/dependency-lookup.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-bean/spring-bean.iml" filepath="$PROJECT_DIR$/spring-bean/spring-bean.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-dependency-lookup-overview/spring-dependency-lookup-overview.iml" filepath="$PROJECT_DIR$/spring-dependency-lookup-overview/spring-dependency-lookup-overview.iml" />
       <module fileurl="file://$PROJECT_DIR$/trainning-for-spring-framework.iml" filepath="$PROJECT_DIR$/trainning-for-spring-framework.iml" />

@@ -10,6 +10,7 @@
     <modules>
         <module>spring-dependency-lookup-overview</module>
         <module>spring-bean</module>
+        <module>dependency-lookup</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,12 +28,13 @@
         </dependencies>
     </dependencyManagement>
 
-<!--    <dependencies>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework</groupId>-->
-<!--            <artifactId>spring-context</artifactId>-->
-<!--        </dependency>-->
-<!--    </dependencies>-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
 
         <plugins>
