@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-dependency-lookup-overview" />
-        <module name="dependency-lookup" />
         <module name="spring-bean" />
+        <module name="dependency-injection" />
+        <module name="dependency-lookup" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dependency-injection" target="1.8" />
       <module name="dependency-lookup" target="1.8" />
       <module name="spring-bean" target="1.8" />
       <module name="spring-dependency-lookup-overview" target="8" />
