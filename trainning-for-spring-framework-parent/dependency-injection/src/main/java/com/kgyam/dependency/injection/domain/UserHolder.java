@@ -7,6 +7,8 @@ public class UserHolder {
     private User user;
 
     public UserHolder(User user) {
+        System.out.println ("UserHolder Constructor," + user);
+        System.out.println ();
         this.user = user;
     }
 

@@ -6,8 +6,8 @@
     <!--       import方式复用lookup的bean配置信息-->
     <import resource="dependency-lookup-context.xml"/>
 
-    <bean name="userHolder" class="com.kgyam.dependency.injection.domain.UserHolder">
-        <property name="user" ref="user"/>
-    </bean>
+    <bean name="userHolderByConstructor" class="com.kgyam.dependency.injection.domain.UserHolder"
+          autowire="constructor"/>
+
 
 </beans>
