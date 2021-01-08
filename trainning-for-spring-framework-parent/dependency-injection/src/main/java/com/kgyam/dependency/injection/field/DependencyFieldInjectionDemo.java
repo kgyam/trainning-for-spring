@@ -11,7 +11,9 @@ import javax.annotation.Resource;
 /**
  * 字段注入示例
  * <p>
- * 字段注入其实就是我们常用的注解注入
+ * 字段注入是通过将注解标记到对应的字段上让上下文将Bean注入
+ *
+ * 这种方式会比较便利
  *
  * @Autowired
  * @Resource
