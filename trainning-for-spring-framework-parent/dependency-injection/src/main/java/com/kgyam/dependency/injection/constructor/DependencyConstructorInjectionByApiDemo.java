@@ -2,7 +2,6 @@ package com.kgyam.dependency.injection.constructor;
 
 import com.kgyam.dependency.injection.domain.UserHolder;
 import com.kgyam.domain.User;
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,14 +16,15 @@ import static org.springframework.beans.factory.support.BeanDefinitionBuilder.ge
  * @date 2021-01-07 17:44
  * @since
  */
-public class DenpendencyConstructorInjectionByApiDemo {
+
+public class DependencyConstructorInjectionByApiDemo {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
         /*
         将当前类注册为配置类
          */
-        applicationContext.register (DenpendencyConstructorInjectionByApiDemo.class);
+        applicationContext.register (DependencyConstructorInjectionByApiDemo.class);
 
         /*
         注册UserHolder的BeanDefinition

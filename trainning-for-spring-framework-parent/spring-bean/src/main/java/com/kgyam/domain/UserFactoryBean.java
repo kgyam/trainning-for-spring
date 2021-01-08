@@ -8,10 +8,7 @@ import org.springframework.beans.factory.FactoryBean;
 public class UserFactoryBean implements FactoryBean {
     @Override
     public Object getObject() throws Exception {
-        User user = User.createUser();
-        user.setAge(30);
-        user.setName("kidchan");
-        return user;
+        return new User ();
     }
 
     @Override

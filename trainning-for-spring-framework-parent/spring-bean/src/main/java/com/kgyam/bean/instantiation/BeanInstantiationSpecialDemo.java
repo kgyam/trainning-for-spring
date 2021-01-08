@@ -5,29 +5,37 @@ import com.kgyam.domain.User;
 import com.kgyam.domain.service.UserService;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionReader;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
 
+import static org.springframework.beans.factory.support.BeanDefinitionBuilder.genericBeanDefinition;
+
 /**
  * Spring Bean非常规方式
  * <p>
- * 1.spi方式
- * 2.AutowireCapableBeanFactory方式
+ * 1.SPI方式(XML、JAVA 注解、JAVA API)
+ * 2.AutowireCapableBeanFactory#createBean(java.lang.Class,int,boolean)方式
+ * 3.BeanDefinitionRegistry#registryBeanDefinition(String,BeanDefinition)
  */
 public class BeanInstantiationSpecialDemo {
 
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:META-INF/bean-instantiation-special-context.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext ("classpath:META-INF/bean-instantiation-special-context.xml");
 
-        instantiationByServiceLoader(applicationContext);
+//        instantiationByServiceLoader (applicationContext);
 //        instantiationByServiceList(applicationContext);
 
+//        instantiationByAutowireCapableBeanFactory (applicationContext);
 
-        instantiationByAutowireCapableBeanFactory(applicationContext);
+        instantiationByBeanDefinitionRegistry ();
     }
 
 
@@ -38,9 +46,9 @@ public class BeanInstantiationSpecialDemo {
      * @param applicationContext
      */
     static void instantiationByAutowireCapableBeanFactory(ApplicationContext applicationContext) {
-        AutowireCapableBeanFactory beanFactory = applicationContext.getAutowireCapableBeanFactory();
-        ServiceLoader<UserService> services = beanFactory.getBean("service-loader-factory-bean", ServiceLoader.class);
-        System.out.println(services);
+        AutowireCapableBeanFactory beanFactory = applicationContext.getAutowireCapableBeanFactory ();
+        ServiceLoader<UserService> services = beanFactory.getBean ("service-loader-factory-bean", ServiceLoader.class);
+        System.out.println (services);
     }
 
     /**
@@ -52,11 +60,11 @@ public class BeanInstantiationSpecialDemo {
      * @param beanFactory
      */
     static void instantiationByServiceLoader(BeanFactory beanFactory) {
-        ServiceLoader<UserService> services = beanFactory.getBean("service-loader-factory-bean", ServiceLoader.class);
-        Iterator<UserService> iterator = services.iterator();
-        while (iterator.hasNext()) {
-            User user = iterator.next().createUser();
-            System.out.println(user);
+        ServiceLoader<UserService> services = beanFactory.getBean ("service-loader-factory-bean", ServiceLoader.class);
+        Iterator<UserService> iterator = services.iterator ();
+        while (iterator.hasNext ()) {
+            User user = iterator.next ().createUser ();
+            System.out.println (user);
         }
     }
 
@@ -70,14 +78,31 @@ public class BeanInstantiationSpecialDemo {
      * @param beanFactory
      */
     static void instantiationByServiceList(BeanFactory beanFactory) {
-        ServiceLoader<UserService> services = beanFactory.getBean("service-loader-factory-bean", ServiceLoader.class);
+        ServiceLoader<UserService> services = beanFactory.getBean ("service-loader-factory-bean", ServiceLoader.class);
 
-        Iterator<UserService> iterator = services.iterator();
-        while (iterator.hasNext()) {
-            UserService userService = iterator.next();
-            User user = userService.createUser();
-            System.out.println(user);
+        Iterator<UserService> iterator = services.iterator ();
+        while (iterator.hasNext ()) {
+            UserService userService = iterator.next ();
+            User user = userService.createUser ();
+            System.out.println (user);
         }
+    }
+
+    static void instantiationByBeanDefinitionRegistry() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
+        applicationContext.register (BeanInstantiationSpecialDemo.class);
+
+        BeanDefinitionBuilder beanDefinitionBuilder = genericBeanDefinition (User.class);
+        beanDefinitionBuilder.addPropertyValue ("name", "dali");
+        /*
+        因为AnnotationConfigApplicationContext实现了BeanDefinitionRegistry接口,所以可以直接调用
+         */
+        applicationContext.registerBeanDefinition ("dali-user", beanDefinitionBuilder.getBeanDefinition ());
+        applicationContext.refresh ();
+
+        User user = applicationContext.getBean ("dali-user", User.class);
+        System.out.println ("BeanDefinitionRegistry#registerBeanDefinition(String,Object):" + user);
+        applicationContext.close ();
     }
 
 }

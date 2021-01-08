@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--    构造器方法实例化bean配置-->
-    <bean id="user-by-constructor" class="com.kgyam.domain.User"></bean>
+    <bean id="user-by-constructor" class="com.kgyam.domain.User"/>
 
     <!--    静态工厂方法实例化bean配置-->
     <bean id="user-by-static-method" factory-method="createUser" class="com.kgyam.domain.User"/>
