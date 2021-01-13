@@ -1,4 +1,4 @@
-package com.kgyam.dependency.injection.constructor;
+package com.kgyam.dependency.injection.constructor_demo;
 
 import com.kgyam.dependency.injection.domain.UserHolder;
 import com.kgyam.domain.User;

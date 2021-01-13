@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="superUser" class="com.kgyam.domain.SuperUser" parent="user" primary="true">
+        <property name="superId" value="super_id_123"/>
+        <!--        数组的设定方式 value用逗号分隔,或者用array标签-->
+        <!--        <property name="permissions" value="d1,d2,d3"/>-->
+        <property name="permissions">
+            <array>
+                <value>d1</value>
+                <value>d2</value>
+                <value>d4</value>
+            </array>
+        </property>
+        <property name="region" value="BEIJING"/>
+    </bean>
+
+    <bean id="user" name="kgyam" class="com.kgyam.domain.User">
+        <property name="name" value="kgyam"/>
+        <property name="age" value="18"/>
+        <property name="region" value="GUANGZHOU"/>
+        <!-- list的设定       -->
+        <property name="workCity">
+            <list>
+                <value>GUANGZHOU</value>
+                <value>HONGKONG</value>
+                <value>SHANGHAI</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="user2" name="kidchan" class="com.kgyam.domain.User">
+        <property name="name" value="kidchan"/>
+        <property name="age" value="30"/>
+        <!--        枚举的设定方式-->
+        <property name="region" value="HONGKONG"/>
+    </bean>
+
+</beans>

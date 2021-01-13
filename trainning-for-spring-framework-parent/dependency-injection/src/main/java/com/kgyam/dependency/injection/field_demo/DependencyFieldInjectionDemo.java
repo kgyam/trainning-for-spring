@@ -1,4 +1,4 @@
-package com.kgyam.dependency.injection.field;
+package com.kgyam.dependency.injection.field_demo;
 
 import com.kgyam.dependency.injection.domain.UserHolder;
 import com.kgyam.domain.User;

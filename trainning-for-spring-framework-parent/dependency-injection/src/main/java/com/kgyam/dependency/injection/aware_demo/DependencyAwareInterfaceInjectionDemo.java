@@ -1,4 +1,4 @@
-package com.kgyam.dependency.injection.aware;
+package com.kgyam.dependency.injection.aware_demo;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;

@@ -35,9 +35,9 @@ import javax.annotation.PostConstruct;
 
 public class BeanInitializationDemo {
     public static void main(String[] args) {
-//        initByAnnotation();
+        initByAnnotation ();
 //        lazyInitUser();
-        initByBeanDefinition();
+//        initByBeanDefinition();
 //        lazyInitUserByXmlConfig();
     }
 
@@ -48,14 +48,14 @@ public class BeanInitializationDemo {
      */
     static void initByAnnotation() {
 
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
         //注册注解标记的组件class
-        applicationContext.register(Config.class);
-        SubUser subUser = applicationContext.getBean("init-by-bean-annotation", SubUser.class);
+        applicationContext.register (Config.class);
         //启动spring应用上下文
-        applicationContext.refresh();
-        System.out.println(subUser);
-        applicationContext.close();
+        applicationContext.refresh ();
+        SubUser subUser = applicationContext.getBean ("init-by-bean-annotation", SubUser.class);
+        System.out.println (subUser);
+        applicationContext.close ();
     }
 
     /**
@@ -66,10 +66,10 @@ public class BeanInitializationDemo {
         /*
         启动读取xml配置的应用上下文
          */
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:META-INF/bean-initialization-context.xml");
-        System.out.println("上下文启动完成");
-        SubUser subUser = applicationContext.getBean("init-by-init-method", SubUser.class);
-        System.out.println(subUser);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext ("classpath:META-INF/bean-initialization-context.xml");
+        System.out.println ("上下文启动完成");
+        SubUser subUser = applicationContext.getBean ("init-by-init-method", SubUser.class);
+        System.out.println (subUser);
     }
 
     /**
@@ -79,36 +79,36 @@ public class BeanInitializationDemo {
      */
     static void initByBeanDefinition() {
 
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
         //启动应用上下文
-        applicationContext.refresh();
+        applicationContext.refresh ();
         /*
         构建BeanDefinitionBuilder
          */
-        BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(SubUser.class);
+        BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition (SubUser.class);
         /*
         设置初始化方法
          */
-        builder.setInitMethodName("initByBeanDefinition");
+        builder.setInitMethodName ("initByBeanDefinition");
         /*
         设置是否延迟加载
          */
         //builder.setLazyInit(true);
-        BeanDefinition beanDefinition = builder.getBeanDefinition();
+        BeanDefinition beanDefinition = builder.getBeanDefinition ();
 
         /*
         向容器注册BeanDefinition,
          */
         // TODO: 2021/1/5  question:这种方式能在容器启动后进行注册？
         String beanName = "init-by-bean-definition";
-        applicationContext.registerBeanDefinition(beanName, beanDefinition);
+        applicationContext.registerBeanDefinition (beanName, beanDefinition);
 
-        SubUser subUser = applicationContext.getBean(beanName, SubUser.class);
-        System.out.println(subUser);
+        SubUser subUser = applicationContext.getBean (beanName, SubUser.class);
+        System.out.println (subUser);
         /*
         关闭应用上下文
          */
-        applicationContext.close();
+        applicationContext.close ();
 
     }
 
@@ -118,10 +118,10 @@ public class BeanInitializationDemo {
      * 通过Xml配置的lazy-init
      */
     static void lazyInitUserByXmlConfig() {
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:META-INF/bean-initialization-context.xml");
-        System.out.println("上下文启动完成");
-        SubUser subUser = beanFactory.getBean("init-lazy-sub-user", SubUser.class);
-        System.out.println(subUser);
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext ("classpath:META-INF/bean-initialization-context.xml");
+        System.out.println ("上下文启动完成");
+        SubUser subUser = beanFactory.getBean ("init-lazy-sub-user", SubUser.class);
+        System.out.println (subUser);
 
     }
 
@@ -130,17 +130,17 @@ public class BeanInitializationDemo {
      * 通过@Bean的lazy-init
      */
     static void lazyInitUser() {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
 
         //注册Config bean definition 需要在启动容器前执行
-        applicationContext.register(Config.class);
-        System.out.println("准备启动上下文");
+        applicationContext.register (Config.class);
+        System.out.println ("准备启动上下文");
         //启动spring应用上下文
-        applicationContext.refresh();
-        System.out.println("启动上下文完成");
-        SubUser subUser = applicationContext.getBean("lazy-init-subuser", SubUser.class);
-        System.out.println(subUser);
-        applicationContext.close();
+        applicationContext.refresh ();
+        System.out.println ("启动上下文完成");
+        SubUser subUser = applicationContext.getBean ("lazy-init-subuser", SubUser.class);
+        System.out.println (subUser);
+        applicationContext.close ();
     }
 
     @Configuration
@@ -148,13 +148,13 @@ public class BeanInitializationDemo {
 
         @Bean(name = "init-by-bean-annotation", initMethod = "initByAnnotation")
         public SubUser subUser() {
-            return new SubUser();
+            return new SubUser ();
         }
 
         @Bean(name = "lazy-init-subuser", initMethod = "lazyInit")
         @Lazy
         public SubUser user() {
-            return new SubUser();
+            return new SubUser ();
         }
     }
 }
