@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="superUser" class="com.kgyam.domain.SuperUser" parent="user" primary="true">
+    <bean id="superUser" class="com.kgyam.domain.SuperUser" parent="user">
         <property name="superId" value="super_id_123"/>
         <!--        数组的设定方式 value用逗号分隔,或者用array标签-->
         <!--        <property name="permissions" value="d1,d2,d3"/>-->
