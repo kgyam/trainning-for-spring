@@ -18,6 +18,10 @@ import java.util.Collection;
  * 使用Qualifier能够精确指定BeanName
  * 同时还能对Bean进行分组
  * {@link Qualifier}
+ * <p>
+ * <p>
+ * 使用自定义注解[标记上Qualifier的],能通过自定义注解对注入对象进行分组。
+ * 只注入标记了自定义注解的Bean对象。参考{@link CustomGroup}
  *
  * @author kg yam
  * @date 2021-01-08 16:12
