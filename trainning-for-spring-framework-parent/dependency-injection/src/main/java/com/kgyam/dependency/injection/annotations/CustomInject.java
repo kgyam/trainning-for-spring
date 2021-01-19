@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 /**
  * 自定义注入注解
  * 无需标记{@link Autowired}
- * 但是需要设定到{@link AutowiredAnnotationBeanPostProcessor}
+ * 但是需要注册到{@link AutowiredAnnotationBeanPostProcessor}
  *
  * @author kg yam
  * @date 2021-01-15 17:43

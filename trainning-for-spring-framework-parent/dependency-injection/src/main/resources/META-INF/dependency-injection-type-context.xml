@@ -39,4 +39,12 @@
         <property name="region" value="HONGKONG"/>
     </bean>
 
+
+    <bean id="user3" class="com.kgyam.domain.User">
+        <property name="name" value="user3"/>
+        <property name="age" value="30"/>
+        <!--        枚举的设定方式-->
+        <property name="region" value="HONGKONG"/>
+    </bean>
+
 </beans>

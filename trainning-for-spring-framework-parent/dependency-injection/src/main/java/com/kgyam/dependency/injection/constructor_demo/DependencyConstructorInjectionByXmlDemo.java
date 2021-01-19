@@ -6,6 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 通过xml配置实现构造器注入
+ * 注入对象user
+ * 被注入对象UserHolder
  *
  * @author kg yam
  * @date 2021-01-07 17:34

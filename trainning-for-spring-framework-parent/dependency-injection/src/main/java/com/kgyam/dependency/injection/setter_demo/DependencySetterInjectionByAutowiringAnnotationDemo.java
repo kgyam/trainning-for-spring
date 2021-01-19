@@ -1,15 +1,12 @@
-package com.kgyam.dependency.injection.setter;
+package com.kgyam.dependency.injection.setter_demo;
 
 import com.kgyam.dependency.injection.domain.UserHolder;
-import com.kgyam.domain.SuperUser;
 import com.kgyam.domain.User;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 没有调试成功，后续再解决

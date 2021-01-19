@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 通过自动绑定的方式实现构造器注入
+ * 通过xml配置的<bean>标签的autowire参数设置构造器方式注入
  *
  * @author kg yam
  * @date 2021-01-07 18:05

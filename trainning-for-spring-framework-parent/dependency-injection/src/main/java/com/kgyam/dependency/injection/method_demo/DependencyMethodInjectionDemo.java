@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import javax.annotation.Resource;
 
 /**
- * 方法注入
+ * 方法注入的方式有
  *
  * @Autowired
  * @Resource
@@ -17,6 +17,9 @@ import javax.annotation.Resource;
  * @Inject JSR330
  */
 public class DependencyMethodInjectionDemo {
+
+
+
 
 
     @Autowired

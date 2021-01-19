@@ -1,4 +1,4 @@
-package com.kgyam.dependency.injection.setter;
+package com.kgyam.dependency.injection.setter_demo;
 
 import com.kgyam.dependency.injection.domain.UserHolder;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -15,6 +15,7 @@ import static org.springframework.beans.factory.support.BeanDefinitionBuilder.ge
  * @since 使用Spring Api的方式实现setter注入
  * <p>
  * 同时这是最核心的方法，xml和注解方式底层实现就是通过这种方式进行
+ * beanDefinitionBuilder#addPropertyReference() 设置property从而设定setter注入
  */
 public class DependencySetterInjectionByApiDemo {
     private static final String XML_LOCATION = "classpath:META-INF/dependency-setter-injection-context-2.xml";
@@ -46,6 +47,7 @@ public class DependencySetterInjectionByApiDemo {
      */
     static BeanDefinition createBeanDefiniton() {
         BeanDefinitionBuilder beanDefinitionBuilder = genericBeanDefinition (UserHolder.class);
+        //通过property设定setter注入
         beanDefinitionBuilder.addPropertyReference ("user", "user");
         return beanDefinitionBuilder.getBeanDefinition ();
     }

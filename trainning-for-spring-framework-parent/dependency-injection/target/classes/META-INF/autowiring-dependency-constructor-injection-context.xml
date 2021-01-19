@@ -6,6 +6,7 @@
     <!--       import方式复用lookup的bean配置信息-->
     <import resource="dependency-lookup-context.xml"/>
 
+    <!--  autowire参数设置构造器方式注入  -->
     <bean name="userHolderByConstructor" class="com.kgyam.dependency.injection.domain.UserHolder"
           autowire="constructor"/>
 

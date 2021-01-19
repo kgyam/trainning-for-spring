@@ -12,6 +12,9 @@ import static org.springframework.beans.factory.support.BeanDefinitionBuilder.ge
 /**
  * 通过BeanDefinition的API方式实现构造器注入
  *
+ * 注入对象: user
+ * 被注入对象: userHolder
+ *
  * @author kg yam
  * @date 2021-01-07 17:44
  * @since
@@ -47,6 +50,7 @@ public class DependencyConstructorInjectionByApiDemo {
      */
     static BeanDefinition createBeanDefinition() {
         BeanDefinitionBuilder beanDefinitionBuilder = genericBeanDefinition (UserHolder.class);
+        //API方式的构造器注入参数设置
         beanDefinitionBuilder.addConstructorArgReference ("user");
         return beanDefinitionBuilder.getBeanDefinition ();
     }
