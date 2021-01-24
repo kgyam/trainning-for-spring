@@ -13,6 +13,8 @@
         <module>dependency-lookup</module>
         <module>dependency-injection</module>
         <module>dependency-source</module>
+        <module>spring-bean-scope</module>
+        <module>spring-bean-scope-war</module>
     </modules>
     <packaging>pom</packaging>
 
