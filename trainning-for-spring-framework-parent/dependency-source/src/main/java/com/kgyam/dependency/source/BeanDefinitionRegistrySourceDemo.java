@@ -29,6 +29,8 @@ public class BeanDefinitionRegistrySourceDemo {
         DefaultListableBeanFactory beanFactory = applicationContext.getDefaultListableBeanFactory ();
         beanFactory.registerBeanDefinition ("bd", buildBeanDefinition ());
         applicationContext.refresh ();
+        //启动容器后可以依然可以注册BeanDefinition
+        beanFactory.registerBeanDefinition ("refresh-after", buildBeanDefinition ());
         BeanDefinitionRegistrySourceDemo demo = beanFactory.getBean (BeanDefinitionRegistrySourceDemo.class);
         System.out.println (demo.user);
         applicationContext.close ();

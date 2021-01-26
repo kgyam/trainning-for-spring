@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+
 /**
  * 外部化配置来源示例
  *
@@ -36,6 +38,19 @@ public class ExternalConfigurationSourceDemo {
 
     @Value("${usr.resource:classpath:META-INF/external-config.properties}")
     private Resource resource;
+
+    @PostConstruct
+    private void init(){
+        System.out.println ("==========init===========");
+        System.out.println (id);
+        System.out.println (name);
+        System.out.println (resource);
+    }
+
+
+    public ExternalConfigurationSourceDemo(){
+        System.out.println ("constructor");
+    }
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();

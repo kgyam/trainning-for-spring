@@ -1,10 +1,14 @@
 package com.kgyam.domain;
 
 import com.kgyam.enums.Region;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
-public class User {
+public class User implements InitializingBean, DisposableBean {
     private String name;
     private int age;
     private Region region;
@@ -61,5 +65,26 @@ public class User {
 
     public static User createUser() {
         return new User ();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println ("User afterPropertiesSet");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println ("User destroy");
+    }
+
+
+    @PostConstruct
+    public void init() {
+        System.out.println ("User PostConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println ("User PreDestroy");
     }
 }
