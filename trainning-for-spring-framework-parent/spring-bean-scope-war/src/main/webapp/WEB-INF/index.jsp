@@ -6,6 +6,8 @@
     <title>首页</title>
 </head>
 <body>
-User对象：${user.name}
+\${requestScopeUser}：${requestScopeUser.name}
+\${sessionScopeUser}：${sessionScopeUser.name}
+\${applicationScopeUser}：${applicationScopeUser.name}
 </body>
 </html>

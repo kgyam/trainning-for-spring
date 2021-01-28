@@ -1,4 +1,4 @@
-package com.kgyam.dependency.injection.field_demo;
+package com.kgyam.dependency.injection.autowired_annotation_demo;
 
 import com.kgyam.dependency.injection.domain.UserHolder;
 import com.kgyam.domain.User;
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @Inject
  */
 
-public class DependencyFieldInjectionDemo {
+public class FieldInjectionDemo {
 
     @Resource
     private UserHolder userHolder;
@@ -32,11 +32,11 @@ public class DependencyFieldInjectionDemo {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(DependencyFieldInjectionDemo.class);
+        applicationContext.register(FieldInjectionDemo.class);
 
         applicationContext.refresh();
 
-        DependencyFieldInjectionDemo config = applicationContext.getBean(DependencyFieldInjectionDemo.class);
+        FieldInjectionDemo config = applicationContext.getBean(FieldInjectionDemo.class);
         System.out.println("@Autowired :" + config.userHolder2);
         System.out.println("@Resource :" + config.userHolder);
         System.out.println("userHolder is the same of userHolder2 :" + (config.userHolder == config.userHolder2));
