@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--    primary属性表示如果存在多个其他bean与这个bean类型相同，只会查找这个bean对象，其他bean不会被加载。
+    以防止通过type获取bean的时候报错，但是如果这些相同类型的bean都使用了primary的属性，getByType还是会出现报错-->
+    <bean id="superUser" class="com.kgyam.domain.SuperUser" parent="user">
+        <property name="superId" value="super_id_123"/>
+    </bean>
+
+    <bean id="user" name="kgyam" class="com.kgyam.domain.User">
+        <property name="name" value="kgyam"/>
+        <property name="age" value="18"/>
+    </bean>
+
+
+</beans>
