@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
-
-    <!-- scope为prototype的xml定义 scope="prototype"-->
-    <bean id="prototype-xml-user" scope="prototype" class="com.kgyam.domain.User"></bean>
-
-</beans>
