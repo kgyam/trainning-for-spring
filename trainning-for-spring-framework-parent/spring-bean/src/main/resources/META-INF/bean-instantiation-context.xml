@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    构造器方法实例化bean配置-->
+    <bean id="user-by-constructor" class="com.kgyam.domain.User"/>
+
+    <!--    静态工厂方法实例化bean配置-->
+    <bean id="user-by-static-method" factory-method="createUser" class="com.kgyam.domain.User"/>
+
+    <!--    工厂方法实例化bean配置-->
+    <bean id="user-by-factory-method" factory-bean="user-factory" class="com.kgyam.domain.User"></bean>
+
+    <!--    工厂方法的工厂bean配置-->
+    <bean id="user-factory" class="com.kgyam.factory.DefaultUserFactory"/>
+
+    <!--  通过factoryBean实例化user的factoryBean配置  -->
+    <bean id="user-factory-bean" class="com.kgyam.domain.UserFactoryBean"></bean>
+
+</beans>
