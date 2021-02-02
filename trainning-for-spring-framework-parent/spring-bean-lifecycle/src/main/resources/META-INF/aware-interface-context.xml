@@ -6,9 +6,7 @@
         http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="user" name="kgyam" class="com.kgyam.domain.User">
-        <property name="name" value="kgyam"/>
-        <property name="age" value="18"/>
+    <bean id="demo" class="com.kgyam.aware.AwareInterfaceDemo">
     </bean>
 
 
