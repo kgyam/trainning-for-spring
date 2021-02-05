@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * bean实例化前置操作&后置操作&源码示例
  */
-public class BeforeInstantiationDemo {
+public class InstantiationDemo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
         applicationContext.getDefaultListableBeanFactory ().addBeanPostProcessor (new CustomInstantiationAwareBeanPostProcessor ());

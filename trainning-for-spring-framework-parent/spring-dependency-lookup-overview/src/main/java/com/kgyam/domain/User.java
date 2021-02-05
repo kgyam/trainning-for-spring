@@ -83,6 +83,11 @@ public class User implements InitializingBean, DisposableBean {
         System.out.println ("User PostConstruct");
     }
 
+    @PostConstruct
+    public void init2() {
+        System.out.println ("User PostConstruct2");
+    }
+
     @PreDestroy
     public void preDestroy() {
         System.out.println ("User PreDestroy");

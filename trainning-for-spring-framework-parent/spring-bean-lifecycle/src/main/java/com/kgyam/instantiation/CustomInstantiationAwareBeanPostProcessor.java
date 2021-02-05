@@ -98,7 +98,10 @@ public class CustomInstantiationAwareBeanPostProcessor implements InstantiationA
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        return null;
+        if ("user".equals (beanName)) {
+            System.out.println ("CustomInstantiationAwareBeanPostProcessor#postProcessBeforeInitialization");
+        }
+        return bean;
     }
 
 
