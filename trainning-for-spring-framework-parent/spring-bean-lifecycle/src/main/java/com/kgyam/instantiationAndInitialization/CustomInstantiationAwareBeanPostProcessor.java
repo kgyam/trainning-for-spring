@@ -1,4 +1,4 @@
-package com.kgyam.instantiation;
+package com.kgyam.instantiationAndInitialization;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;

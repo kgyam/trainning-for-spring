@@ -1,8 +1,7 @@
-package com.kgyam.instantiation;
+package com.kgyam.instantiationAndInitialization;
 
 import com.kgyam.domain.User;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
