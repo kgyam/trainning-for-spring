@@ -15,6 +15,7 @@
         <module>dependency-source</module>
         <module>spring-bean-scope</module>
         <module>spring-bean-scope-war</module>
+        <module>spring-metadata</module>
     </modules>
     <packaging>pom</packaging>
 

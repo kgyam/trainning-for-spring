@@ -11,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.util.ObjectUtils;
 
 /**
- * Bean配置元信息示例
+ * Bean配置元信息示例,使用BeanDefinitionBuilder方式配置元信息
  * <p>
  * bean definition是用于描述bean实例，
  * 如property value、property reference、构造器参数、初始化方法、销毁方法、scope等都是从这里获取的
@@ -19,6 +19,9 @@ import org.springframework.util.ObjectUtils;
  * bean factory利用bd构建bean实例
  * <p>
  * beanDefinition作用
+ *
+ * @see BeanDefinitionBuilder
+ * @see AbstractBeanDefinition
  */
 public class BeanConfigurationMetadataDemo {
 
