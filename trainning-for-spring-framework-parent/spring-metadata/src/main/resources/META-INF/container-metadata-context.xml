@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+       profile="dev" default-autowire="constructor" default-merge="false" default-lazy-init="false"
+       default-autowire-candidates="" default-init-method=""
+       default-destroy-method="">
+
+    <!--  profile 默认值为空 Spring Profiles配置值，一般用来区分应用程序环境  -->
+    <!--  default-lazy-init 默认值为default 当outer beans存在该属性时，继承该值，否则默认为false  -->
+    <!-- default-merge 默认值为default  当outer beans存在该属性时，继承该值，否则为false  -->
+    <!-- default-autowire 默认值为default 当outer beans存在该属性时，继承该值，否则为no   -->
+    <!-- default-autowire-candidates 默认为null  默认Spring Beans名称pattern    -->
+    <!-- default-init-method 默认为null 默认Spring Beans自定义初始化方法   -->
+    <!-- default-destroy-method 默认为null 默认Spring Beans自定义销毁方法-->
+
+
+    <!-- 激活Spring注解驱动   -->
+    <context:annotation-config/>
+    <!-- Spring @Component以及自定义注解扫描   -->
+    <context:component-scan base-package="com.kgyam"/>
+    <!--  激活Spring LoadTimeWeaver  -->
+    <context:load-time-weaver/>
+    <!--  暴露Spring Beans 作为JMX Beans  -->
+    <context:mbean-export/>
+    <!--  将当前平台作为MBeanServer  -->
+    <context:mbean-server/>
+    <!--  加载外部化配置资源作为Spring属性配置  -->
+    <context:property-placeholder/>
+    <!--  利用外部化配置资源覆盖Spring属性值  -->
+    <context:property-override/>
+</beans>

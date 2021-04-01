@@ -16,11 +16,12 @@
         <module>spring-bean-scope</module>
         <module>spring-bean-scope-war</module>
         <module>spring-metadata</module>
+        <module>spring-data-binding</module>
     </modules>
     <packaging>pom</packaging>
 
     <properties>
-    <spring.version>5.2.2.RELEASE</spring.version>
+        <spring.version>5.2.6.RELEASE</spring.version>
     </properties>
 
     <dependencyManagement>
@@ -33,27 +34,11 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-
+    <!--    <dependencies>-->
+    <!--        <dependency>-->
+    <!--            <groupId>org.springframework</groupId>-->
+    <!--            <artifactId>spring-context</artifactId>-->
+    <!--        </dependency>-->
+    <!--    </dependencies>-->
 
 </project>

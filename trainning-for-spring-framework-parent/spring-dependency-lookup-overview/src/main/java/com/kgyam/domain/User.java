@@ -13,6 +13,7 @@ public class User implements InitializingBean, DisposableBean {
     private int age;
     private Region region;
     private List<Region> workCity;
+    private Company company;
 
     public User() {
     }
@@ -53,6 +54,14 @@ public class User implements InitializingBean, DisposableBean {
         this.age = age;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -60,6 +69,7 @@ public class User implements InitializingBean, DisposableBean {
                 ", age=" + age +
                 ", region=" + region +
                 ", workCity=" + workCity +
+                ", company=" + company +
                 '}';
     }
 
