@@ -17,7 +17,7 @@
         <module>spring-bean-scope-war</module>
         <module>spring-metadata</module>
         <module>spring-data-binding</module>
-        <module>spring-converter</module>
+        <module>spring-conversion</module>
     </modules>
     <packaging>pom</packaging>
 

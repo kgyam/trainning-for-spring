@@ -7,6 +7,7 @@ import org.springframework.beans.factory.InitializingBean;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
+import java.util.Properties;
 
 public class User implements InitializingBean, DisposableBean {
     private String name;
@@ -14,6 +15,7 @@ public class User implements InitializingBean, DisposableBean {
     private Region region;
     private List<Region> workCity;
     private Company company;
+    private Properties context;
 
     public User() {
     }
@@ -62,6 +64,14 @@ public class User implements InitializingBean, DisposableBean {
         this.company = company;
     }
 
+    public Properties getContext() {
+        return context;
+    }
+
+    public void setContext(Properties context) {
+        this.context = context;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -70,36 +80,38 @@ public class User implements InitializingBean, DisposableBean {
                 ", region=" + region +
                 ", workCity=" + workCity +
                 ", company=" + company +
+                ", context=" + context +
                 '}';
     }
 
+
     public static User createUser() {
-        return new User ();
+        return new User();
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println ("User afterPropertiesSet");
+        System.out.println("User afterPropertiesSet");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println ("User destroy");
+        System.out.println("User destroy");
     }
 
 
     @PostConstruct
     public void init() {
-        System.out.println ("User PostConstruct");
+        System.out.println("User PostConstruct");
     }
 
     @PostConstruct
     public void init2() {
-        System.out.println ("User PostConstruct2");
+        System.out.println("User PostConstruct2");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println ("User PreDestroy");
+        System.out.println("User PreDestroy");
     }
 }
