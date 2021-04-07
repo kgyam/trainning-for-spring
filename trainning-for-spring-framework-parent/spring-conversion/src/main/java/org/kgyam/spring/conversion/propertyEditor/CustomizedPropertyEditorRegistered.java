@@ -1,4 +1,4 @@
-package org.kgyam.spring.conversion;
+package org.kgyam.spring.conversion.propertyEditor;
 
 import com.kgyam.domain.User;
 import org.springframework.beans.PropertyEditorRegistrar;
@@ -10,6 +10,6 @@ import org.springframework.beans.PropertyEditorRegistry;
 public class CustomizedPropertyEditorRegistered implements PropertyEditorRegistrar {
     @Override
     public void registerCustomEditors(PropertyEditorRegistry propertyEditorRegistry) {
-            propertyEditorRegistry.registerCustomEditor(User.class,"context",new StringToPropertiesPropertyEditor());
+            propertyEditorRegistry.registerCustomEditor(User.class,"context",new StringToPropertiesPropertyEditor ());
     }
 }

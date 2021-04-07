@@ -1,4 +1,4 @@
-package org.kgyam.spring.conversion;
+package org.kgyam.spring.conversion.converter;
 
 import org.springframework.core.convert.converter.Converter;
 

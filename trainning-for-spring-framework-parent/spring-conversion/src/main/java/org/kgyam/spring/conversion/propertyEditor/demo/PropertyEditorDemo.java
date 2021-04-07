@@ -1,4 +1,6 @@
-package org.kgyam.spring.conversion;
+package org.kgyam.spring.conversion.propertyEditor.demo;
+
+import org.kgyam.spring.conversion.propertyEditor.StringToPropertiesPropertyEditor;
 
 import java.util.Properties;
 
