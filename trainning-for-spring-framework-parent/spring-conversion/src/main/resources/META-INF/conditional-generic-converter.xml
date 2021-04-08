@@ -13,6 +13,25 @@
         <prop key="ip">127.0.0.1</prop>
     </util:properties>
 
+    <util:list id="user-list" scope="singleton" value-type="com.kgyam.domain.User" list-class="java.util.ArrayList">
+        <bean id="user1" class="com.kgyam.domain.User">
+            <property name="name" value="user1"></property>
+            <property name="age" value="12"></property>
+        </bean>
+        <bean id="user2" class="com.kgyam.domain.User">
+            <property name="name" value="user2"></property>
+            <property name="age" value="122"></property>
+        </bean>
+        <bean id="user3" class="com.kgyam.domain.User">
+            <property name="name" value="user3"></property>
+            <property name="age" value="2"></property>
+        </bean>
+    </util:list>
+
+    <bean id="users" class="com.kgyam.domain.Users">
+        <property name="users" ref="user-list"/>
+    </bean>
+
     <bean id="localProperties" class="org.kgyam.spring.conversion.converter.LocalProperties">
         <property name="propertiesAsText" ref="default-properties"></property>
     </bean>
@@ -20,7 +39,11 @@
     <!-- 必须要用conversionService    -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
-            <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringGenericConverter"/>
+            <util:list>
+                <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringGenericConverter"/>
+                                <bean class="org.kgyam.spring.conversion.converter.ListToMapConverter"/>
+<!--                <bean class="org.kgyam.spring.conversion.converter.CollectionToMapConditionalGenericConverter"/>-->
+            </util:list>
         </property>
     </bean>
 </beans>
