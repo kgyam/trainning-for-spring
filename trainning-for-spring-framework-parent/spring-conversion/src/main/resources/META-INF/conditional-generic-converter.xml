@@ -20,7 +20,9 @@
     <!-- 必须要用conversionService    -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
-            <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringGenericConverter"/>
+            <!--            <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringGenericConverter"/>-->
+            <!--            <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringConverter"/>-->
+            <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringConverterFactory"/>
         </property>
     </bean>
 </beans>
