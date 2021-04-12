@@ -1,5 +1,7 @@
 package org.kgyam.spring.conversion.converter;
 
+import org.springframework.core.convert.TypeDescriptor;
+import org.springframework.core.convert.converter.ConditionalConverter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.converter.ConverterFactory;
 
@@ -22,7 +24,8 @@ public class PropertiesToStringConverterFactory implements ConverterFactory<Prop
     }
 
 
-    private static final class InnerPropertiesToStringConverter<T extends String> implements Converter<Properties, String> {
+    private static final class InnerPropertiesToStringConverter<T extends String> implements Converter<Properties, String>
+            , ConditionalConverter {
 
 
         @Override
@@ -32,6 +35,11 @@ public class PropertiesToStringConverterFactory implements ConverterFactory<Prop
                 stringBuilder.append (entry.getKey () + ":" + entry.getValue ()).append (",");
             }
             return stringBuilder.deleteCharAt (stringBuilder.length () - 1).toString ();
+        }
+
+        @Override
+        public boolean matches(TypeDescriptor sourceType, TypeDescriptor targetType) {
+            return Properties.class.equals (sourceType.getType ()) && String.class.equals (targetType.getType ());
         }
     }
 }

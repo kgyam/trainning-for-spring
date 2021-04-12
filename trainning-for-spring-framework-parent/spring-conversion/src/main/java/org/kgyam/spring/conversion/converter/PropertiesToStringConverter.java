@@ -1,5 +1,7 @@
 package org.kgyam.spring.conversion.converter;
 
+import org.springframework.core.convert.TypeDescriptor;
+import org.springframework.core.convert.converter.ConditionalConverter;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.Map;
@@ -15,13 +17,20 @@ import java.util.Properties;
  * @date 2021-04-06 17:24
  * @since
  */
-public class PropertiesToStringConverter implements Converter<Properties, String> {
+public class PropertiesToStringConverter implements Converter<Properties, String>, ConditionalConverter {
     @Override
     public String convert(Properties properties) {
+        System.out.println ("PropertiesToStringConverter#convert");
         StringBuilder stringBuilder = new StringBuilder ();
         for (Map.Entry<Object, Object> entry : properties.entrySet ()) {
             stringBuilder.append (entry.getKey () + ":" + entry.getValue ()).append (",");
         }
         return stringBuilder.deleteCharAt (stringBuilder.length () - 1).toString ();
+    }
+
+    @Override
+    public boolean matches(TypeDescriptor sourceType, TypeDescriptor targetType) {
+        System.out.println ("PropertiesToStringConverter#matches");
+        return Properties.class.equals (sourceType.getType ()) && String.class.equals (targetType.getType ());
     }
 }

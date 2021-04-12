@@ -6,6 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
@@ -16,6 +17,7 @@ public class User implements InitializingBean, DisposableBean {
     private List<Region> workCity;
     private Company company;
     private Properties context;
+    private UserContext contextList;
 
     public User() {
     }
@@ -81,37 +83,45 @@ public class User implements InitializingBean, DisposableBean {
                 ", workCity=" + workCity +
                 ", company=" + company +
                 ", context=" + context +
+                ", contextList=" + contextList +
                 '}';
     }
 
+    public UserContext getContextList() {
+        return contextList;
+    }
+
+    public void setContextList(UserContext contextList) {
+        this.contextList = contextList;
+    }
 
     public static User createUser() {
-        return new User();
+        return new User ();
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("User afterPropertiesSet");
+        System.out.println ("User afterPropertiesSet");
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("User destroy");
+        System.out.println ("User destroy");
     }
 
 
     @PostConstruct
     public void init() {
-        System.out.println("User PostConstruct");
+        System.out.println ("User PostConstruct");
     }
 
     @PostConstruct
     public void init2() {
-        System.out.println("User PostConstruct2");
+        System.out.println ("User PostConstruct2");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("User PreDestroy");
+        System.out.println ("User PreDestroy");
     }
 }

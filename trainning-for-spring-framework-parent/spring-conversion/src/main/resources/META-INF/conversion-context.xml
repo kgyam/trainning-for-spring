@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util https://www.springframework.org/schema/utils/spring-util.xsd">
+
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="customizedPropertyEditorRegistered"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="customizedPropertyEditorRegistered"
+          class="org.kgyam.spring.conversion.propertyEditor.CustomizedPropertyEditorRegistered"/>
 
 
     <bean id="user" name="kgyam" class="com.kgyam.domain.User">
         <property name="name" value="kgyam"/>
         <property name="age" value="18"/>
         <property name="context">
-            <value>
-                context_id=123
-                context_name=cn1
-            </value>
+            <value></value>
         </property>
+        <property name="contextList" value="v1,v2,v3,v4,v5"></property>
     </bean>
+
 
 </beans>

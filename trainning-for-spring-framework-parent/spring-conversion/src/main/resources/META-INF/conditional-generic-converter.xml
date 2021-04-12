@@ -28,9 +28,9 @@
         </bean>
     </util:list>
 
-    <bean id="users" class="com.kgyam.domain.Users">
-        <property name="users" ref="user-list"/>
-    </bean>
+<!--    <bean id="users" class="com.kgyam.domain.Users">-->
+<!--        <property name="users" ref="user-list"/>-->
+<!--    </bean>-->
 
     <bean id="localProperties" class="org.kgyam.spring.conversion.converter.LocalProperties">
         <property name="propertiesAsText" ref="default-properties"></property>
@@ -40,8 +40,9 @@
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <util:list>
-                <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringGenericConverter"/>
-                                <bean class="org.kgyam.spring.conversion.converter.ListToMapConverter"/>
+                <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringConverter"/>
+<!--                <bean class="org.kgyam.spring.conversion.converter.PropertiesToStringGenericConverter"/>-->
+<!--                                <bean class="org.kgyam.spring.conversion.converter.ListToMapConverter"/>-->
 <!--                <bean class="org.kgyam.spring.conversion.converter.CollectionToMapConditionalGenericConverter"/>-->
             </util:list>
         </property>

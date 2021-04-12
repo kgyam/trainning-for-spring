@@ -1,6 +1,5 @@
 package org.kgyam.spring.conversion.converter;
 
-import com.kgyam.domain.User;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.HashMap;
