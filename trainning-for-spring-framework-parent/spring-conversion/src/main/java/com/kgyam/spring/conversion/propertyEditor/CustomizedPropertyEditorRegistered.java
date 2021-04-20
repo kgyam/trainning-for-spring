@@ -1,6 +1,5 @@
-package org.kgyam.spring.conversion.propertyEditor;
+package com.kgyam.spring.conversion.propertyEditor;
 
-import com.kgyam.domain.User;
 import com.kgyam.domain.UserContext;
 import org.springframework.beans.PropertyEditorRegistrar;
 import org.springframework.beans.PropertyEditorRegistry;

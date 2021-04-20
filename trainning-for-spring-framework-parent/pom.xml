@@ -18,6 +18,7 @@
         <module>spring-metadata</module>
         <module>spring-data-binding</module>
         <module>spring-conversion</module>
+        <module>event</module>
     </modules>
     <packaging>pom</packaging>
 

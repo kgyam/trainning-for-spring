@@ -15,7 +15,7 @@ http://www.springframework.org/schema/util https://www.springframework.org/schem
     </bean>
 
     <bean id="customizedPropertyEditorRegistered"
-          class="org.kgyam.spring.conversion.propertyEditor.CustomizedPropertyEditorRegistered"/>
+          class="com.kgyam.spring.conversion.propertyEditor.CustomizedPropertyEditorRegistered"/>
 
 
     <bean id="user" name="kgyam" class="com.kgyam.domain.User">

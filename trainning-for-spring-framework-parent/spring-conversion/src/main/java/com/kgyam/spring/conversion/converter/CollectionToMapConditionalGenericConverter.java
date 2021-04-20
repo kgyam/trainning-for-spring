@@ -1,4 +1,4 @@
-package org.kgyam.spring.conversion.converter;
+package com.kgyam.spring.conversion.converter;
 
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.ConditionalGenericConverter;

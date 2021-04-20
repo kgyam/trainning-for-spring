@@ -1,4 +1,4 @@
-package org.kgyam.spring.conversion.converter;
+package com.kgyam.spring.conversion.converter;
 
 /**
  * @author kg yam

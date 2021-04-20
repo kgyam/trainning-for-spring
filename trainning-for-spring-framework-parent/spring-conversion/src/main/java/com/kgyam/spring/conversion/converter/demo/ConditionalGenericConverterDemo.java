@@ -1,7 +1,6 @@
-package org.kgyam.spring.conversion.converter.demo;
+package com.kgyam.spring.conversion.converter.demo;
 
-import com.kgyam.domain.Users;
-import org.kgyam.spring.conversion.converter.LocalProperties;
+import com.kgyam.spring.conversion.converter.LocalProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
