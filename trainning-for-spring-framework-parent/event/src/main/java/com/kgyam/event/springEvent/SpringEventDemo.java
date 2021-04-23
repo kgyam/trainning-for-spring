@@ -28,7 +28,9 @@ public class SpringEventDemo {
          */
         applicationContext.register (MyApplicationListener.class);
 
-        /*
+        applicationContext.refresh ();
+
+          /*
         1. 通过ConfigurableApplicationContext的API注册
         org.springframework.context.ConfigurableApplicationContext.addApplicationListener
          */
@@ -39,7 +41,13 @@ public class SpringEventDemo {
             }
         });
 
-        applicationContext.refresh ();
+        applicationContext.publishEvent (new ApplicationEvent ("innerApplicationEvent") {
+            @Override
+            public String getSource() {
+                return (String)super.getSource ();
+            }
+        });
+
         applicationContext.close ();
     }
 
