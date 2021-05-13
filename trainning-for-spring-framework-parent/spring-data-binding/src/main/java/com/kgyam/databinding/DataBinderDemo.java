@@ -1,4 +1,4 @@
-package org.kgyam.databinding;
+package com.kgyam.databinding;
 
 import com.kgyam.domain.User;
 import org.springframework.beans.MutablePropertyValues;

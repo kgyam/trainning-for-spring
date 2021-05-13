@@ -20,6 +20,7 @@
         <module>spring-conversion</module>
         <module>event</module>
         <module>spring-annotation</module>
+        <module>spring-environment</module>
     </modules>
     <packaging>pom</packaging>
 

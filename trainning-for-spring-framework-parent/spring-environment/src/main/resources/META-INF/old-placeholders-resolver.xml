@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--  Spring 3.1之前的占位符处理  -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:/META-INF/default.properties"/>
+        <property name="fileEncoding" value="GBK"/>
+    </bean>
+
+    <bean id="user" class="com.kgyam.domain.User">
+        <property name="name" value="${user.name}"></property>
+        <property name="age" value="${user.age}"></property>
+        <property name="region" value="${user.region}"></property>
+    </bean>
+</beans>
