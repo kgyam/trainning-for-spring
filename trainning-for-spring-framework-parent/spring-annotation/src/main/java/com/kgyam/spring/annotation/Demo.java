@@ -8,11 +8,11 @@ import org.springframework.context.annotation.ComponentScan;
  * @date 2021-04-29 14:06
  * @since
  */
-@ComponentScan(basePackages = "com.kgyam.annotation")
+@ComponentScan(basePackages = "com.kgyam.spring.annotation")
 public class Demo {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext=new AnnotationConfigApplicationContext ();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext ();
         applicationContext.register (Demo.class);
         applicationContext.refresh ();
         applicationContext.close ();
